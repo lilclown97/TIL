@@ -18,9 +18,9 @@ console.log(num); //0.30000000000000004
 
 > **해결 방안**
 
-- [toFixed() 메소드](https://velog.io/@lilclown/Javascript18)를 활용하여 소수 자리수 지정
+- [toFixed() 메소드](https://velog.io/@lilclown/Javascript-%EC%88%AB%EC%9E%90%ED%98%95-%EB%A9%94%EC%86%8C%EB%93%9CtoFixed-toString)를 활용하여 소수 자리수 지정
 
-- [Math 객체](https://velog.io/@lilclown/Javascript19)를 활용하여 반올림, 올림, 내림
+- [Math 객체](https://velog.io/@lilclown/Javascript-Math-%EA%B0%9D%EC%B2%B4)를 활용하여 반올림, 올림, 내림
 
 <br><br>
 

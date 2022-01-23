@@ -6,7 +6,7 @@
 
 - Array-Like Object, 유사 객체 배열이라는 뜻으로 배열처럼 보이지만 `key`에 index 값으로 되어있는 length 값을 가진 객체라고 볼 수 있다.
 
-- javascript에서 [태그 선택](https://velog.io/@lilclown/Javascript23)으로 element를 가져오면 유사 배열의 형태로 가져온다.
+- javascript에서 [태그 선택](https://velog.io/@lilclown/Javascript-%ED%83%9C%EA%B7%B8-%EC%84%A0%ED%83%9D)으로 element를 가져오면 유사 배열의 형태로 가져온다.
 
 <br>
 
