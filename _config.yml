@@ -30,9 +30,9 @@ masthead_title           : # overrides the website title displayed in the masthe
 breadcrumbs            : true # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
+  provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
   disqus:
-    shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+    shortname            : "lilclown97's blog" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -104,7 +104,7 @@ analytics:
 author:
   name             : "lilclown97"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Started on **2022-01-24~**"
+  bio              : "Started on **2022-01-24~"
   location         : "South Korea"
   email            : "djfldrhkdeo97@naver.com"
   facebook         : "100007252669118"
@@ -288,7 +288,7 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: # true
+      comments: true
       share: true
       related: true
       show_date: true
