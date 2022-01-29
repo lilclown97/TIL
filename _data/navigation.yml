@@ -15,7 +15,10 @@ docs:
     children:
       - title: "Blog"
         url: "https://lilclown97.github.io/categories/#github-blog"
-
+  - title: "항해99"
+    children:
+      - title: "사전"
+        url: ""
 
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
