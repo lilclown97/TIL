@@ -275,6 +275,9 @@ defaults:
       related: true
       show_date: true
       toc: true
+      toc_sticky: true
+      sidebar:
+        nav: "docs"
 
 
 date_format: "%Y-%m-%d"
