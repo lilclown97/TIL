@@ -7,6 +7,10 @@ main:
   - title: "Search"
     url: /search/
 docs:
+  - title: "Notice"
+    children:
+      - title: "Read"
+        url: "https://lilclown97.github.io/categories/#notice"
   - title: "GitHub"
     children:
       - title: "Blog"
