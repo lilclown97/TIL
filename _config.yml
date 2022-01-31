@@ -16,14 +16,14 @@ minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "
 
 # Site Settings
 locale                   : "ko-KR"
-title                    : "lilclown97's Circus"
+title                    : "lilclown's Circus"
 title_separator          : "|"
 subtitle                 : "Laugh at myself."
-name                     : "lilclown97"
-description              : "lilclown97의 개발블로그 입니다."
-url                      : "https://lilclown97.github.io"
+name                     : "lilclown"
+description              : "lilclown의 개발블로그 입니다."
+url                      : "https://lilclown.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : "lilclown97/lilclown97.github.io"
+repository               : "lilclown97/lilclown.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # "/assets/images/clown.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
@@ -102,7 +102,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "lilclown97"
+  name             : "lilclown"
   avatar           : "/assets/images/clown.png"
   bio              : "Started on **2022-01-24~"
   location         : "South Korea"
