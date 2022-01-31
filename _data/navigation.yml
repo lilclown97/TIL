@@ -1,7 +1,7 @@
 # main links
 main:
   - title: "Home"
-    url: "https://lilclown97.github.io/"
+    url: "https://lilclown.github.io/"
   - title: "Category"
     url: /categories/
   - title: "Search"
@@ -10,11 +10,11 @@ docs:
   - title: "Notice"
     children:
       - title: "Read"
-        url: "https://lilclown97.github.io/categories/#notice"
+        url: "https://lilclown.github.io/categories/#notice"
   - title: "GitHub"
     children:
       - title: "Blog"
-        url: "https://lilclown97.github.io/categories/#github-blog"
+        url: "https://lilclown.github.io/categories/#github-blog"
   - title: "항해99"
     children:
       - title: "사전"
