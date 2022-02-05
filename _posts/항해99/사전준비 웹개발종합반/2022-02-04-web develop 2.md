@@ -173,7 +173,7 @@ padding-left: 40px;
 
 ### width, height
 
-- px이나 % 앞의 숫자가 커질수록  크기가 커짐.
+- px이나 % 앞의 숫자가 커질수록  크기가 커짐
 
 - width: 300px, height: 200px
 
