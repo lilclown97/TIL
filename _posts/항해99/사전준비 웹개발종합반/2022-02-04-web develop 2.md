@@ -126,7 +126,7 @@ padding: 40px; #px, % 사용, top/bottom/right/left 별개로 사용 가능.
 
 ## tag 값 변경해보기
 
-### border-radius
+### 1. border-radius
 
 - px이나 % 앞의 숫자가 커질수록 라운딩이 완만해짐.
 
@@ -139,7 +139,7 @@ padding: 40px; #px, % 사용, top/bottom/right/left 별개로 사용 가능.
 
 <br>
 
-### margin, padding
+### 2. margin, padding
 
 - 상하좌우 같은 값의 margin, padding 적용
 
@@ -171,7 +171,7 @@ padding-left: 40px;
 
 <br>
 
-### width, height
+### 3. width, height
 
 - px이나 % 앞의 숫자가 커질수록  크기가 커짐
 
@@ -187,14 +187,14 @@ padding-left: 40px;
 
 ## WIL
 
-### margin, padding 차이
+### 1. margin, padding 차이
 
 - margin : 바깥 여백
 - padding : 안쪽 여백
 
 <br>
 
-### tag
+### 2. tag
 
 - h1, h5, background-image, background-size, background-position
 color, width, height, border-radius, margin, padding
