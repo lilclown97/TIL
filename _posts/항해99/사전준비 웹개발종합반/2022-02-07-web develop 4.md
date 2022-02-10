@@ -14,7 +14,7 @@ tag: [항해99, 사전준비, 웹개발종합반]
 
 ## bootstrap
 
-### 1. url 
+### 1. url
 
 - [bootstrap](https://getbootstrap.com/)
 
