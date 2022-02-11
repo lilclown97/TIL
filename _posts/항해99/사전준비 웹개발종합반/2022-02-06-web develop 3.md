@@ -35,9 +35,17 @@ tag: [항해99, 사전준비, 웹개발종합반]
 
 ### 3. 폰트 적용법
 
-- <head> ~ </head> 사이에 styleseet link 붙여넣기
+- 
+```python
+<head> ~ </head> 
+``` 
+사이에 styleseet link 붙여넣기
 
-- <style> ~ </style> 사이에 CSS rules 붙여넣기
+- 
+```python
+<style> ~ </style> 
+``` 
+사이에 CSS rules 붙여넣기
 
 <br>
 
@@ -100,13 +108,21 @@ tag: [항해99, 사전준비, 웹개발종합반]
 
 ### 1. 파일분리
 
-- css 파일 생성 후 <style> ~ </style> 사이의 내용 복사
+- css 파일 생성 후 
+```python
+<style> ~ </style> 
+``` 
+사이에 내용 복사
 
 <br>
 
 ### 2. 적용법
 
-- <head> ~ </head> 사이에 link
+- 
+```
+python <head> ~ </head>
+``` 
+사이에 link
 
 ```python
 <link rel="stylesheet" type="text/css" href = "(css파일이름).css">
