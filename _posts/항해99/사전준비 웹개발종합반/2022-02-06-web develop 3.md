@@ -36,12 +36,14 @@ tag: [항해99, 사전준비, 웹개발종합반]
 ### 3. 폰트 적용법
 
 - 
+</br>
 ```python
 <head> ~ </head> 
 ``` 
 사이에 styleseet link 붙여넣기
 
 - 
+
 ```python
 <style> ~ </style> 
 ``` 
