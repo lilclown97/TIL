@@ -12,7 +12,7 @@ tag: [항해99, 사전준비, 웹개발종합반]
 
 <br><br><br>
 
-## bootstrap
+## tag
 
 ### 1. tag
 
