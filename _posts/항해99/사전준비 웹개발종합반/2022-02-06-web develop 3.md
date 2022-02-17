@@ -1,6 +1,6 @@
 --- 
 
-title: "항해99, 사전준비 웹개발종합반 #3" 
+title: "항해99, 사전준비 웹개발종합반 #3"
 excerpt: "[폰트, 주석, 파일분리] 웹개발 종합반 1-7" 
 categories: [hanghae99, web develop] 
 tag: [항해99, 사전준비, 웹개발종합반] 
