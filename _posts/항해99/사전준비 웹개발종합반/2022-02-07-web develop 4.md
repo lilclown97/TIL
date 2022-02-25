@@ -1,7 +1,7 @@
 --- 
 
 title: "항해99, 사전준비 웹개발종합반 #4" 
-excerpt: "[bootstrap] 웹개발 종합반 1-8" 
+excerpt: "[bootstrap] 웹개발 종합반 1-8"
 categories: [hanghae99, web develop] 
 tag: [항해99, 사전준비, 웹개발종합반] 
 
