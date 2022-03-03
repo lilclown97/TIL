@@ -76,7 +76,7 @@ tag: [항해99, 사전준비, 웹개발종합반]
 
 ![연습2](https://user-images.githubusercontent.com/98236458/156641009-14a15ef0-0762-4b61-b85e-f3f6dc74a202.png)
 
-### 6. 포스팅 박스 만들기
+### 6. 포스팅 박스 만들기 code
 
 ```python
 <!doctype html>
