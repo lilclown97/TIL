@@ -2,7 +2,7 @@
 
 title: "항해99, 사전준비 웹개발종합반 #7"
 excerpt: "[bootstrap] 웹개발 종합반 1-11"
-categories: [hanghae99, web develop] 
+categories: [hanghae99, web develop]
 tag: [항해99, 사전준비, 웹개발종합반]
 
 ---
