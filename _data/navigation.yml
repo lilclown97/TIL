@@ -23,6 +23,8 @@ docs:
         url: "https://lilclown97.github.io/categories/#web-develop"
       - title: "TIL"
         url: "https://lilclown97.github.io/categories/#til"
+      - title: "Algorithm"
+        url: "https://lilclown97.github.io/categories/#algorithm"
 
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
