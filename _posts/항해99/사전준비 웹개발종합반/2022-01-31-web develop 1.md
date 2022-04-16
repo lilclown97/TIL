@@ -1,7 +1,7 @@
 --- 
 
 title: "항해99, 사전준비 웹개발종합반 #1"
-excerpt: "[HTML, CSS] 웹개발 종합반 1-1 ~ 1-5"
+excerpt: "웹개발 종합반 1-1 ~ 1-5 HTML, CSS 기초"
 categories: [hanghae99, web develop]
 tag: [항해99, 사전준비, 웹개발종합반]
 
