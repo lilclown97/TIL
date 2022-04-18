@@ -16,14 +16,14 @@ tag: [항해99, 사전준비, 웹개발종합반]
 
 <br>
 
-### Javascript?
+### 1. Javascript?
 
 - 모든 브라우저는 기본적으로 Javascript 사용 (약속)
 - Java와 Javascript는 관련이 없음.
 
 <br><br><br>
 
-### 기초
+### 2. 자바스크립트 기초
 
 ```python
 <script>
@@ -40,4 +40,3 @@ tag: [항해99, 사전준비, 웹개발종합반]
 ![자바스크립트 기초](https://user-images.githubusercontent.com/98236458/163781198-3cc1e22d-fb24-476b-a5b6-9f6de71ad3ef.PNG)
 
 ![자바스크립트 기초2](https://user-images.githubusercontent.com/98236458/163781235-e3d87989-cad6-4c92-a6a3-b19e917e561a.PNG)
-
