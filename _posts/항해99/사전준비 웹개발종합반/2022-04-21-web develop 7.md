@@ -1,0 +1,153 @@
+--- 
+
+title: "항해99, 사전준비 웹개발종합반 #7" 
+excerpt: "웹개발 종합반 2주차 숙제_팬명록에 날씨 정보 추가하기" 
+categories: [hanghae99, web develop]
+tag: [항해99, 사전준비, 웹개발종합반] 
+
+---
+
+**[Notice[공지사항]](https://lilclown97.github.io/notice/Notice1/)**
+{: .notice--danger}
+
+<br><br><br>
+
+## 2주차 숙제
+
+<br>
+
+### 1. 팬명록에 날씨 정보 추가
+
+- function을 ```$(document).ready```으로 묶어줌으로써 로딩이 되면 자동으로 날씨 정보가 변함.
+- span : html 문서에서 요소들을 하나로 묶을 때 사용. 자체만으로는 아무 의미도 가지지 않지만 class나 id를 사용하여 그룹화 가능.
+
+- code
+
+```python
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+    <title>10cm 팬명록</title>
+    <style>
+        * {
+            font-family: 'Noto Serif KR', serif;
+        }
+        .mytitle {
+            background-color: green;
+
+            width: 100%;
+            height: 250px;
+
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.mhns.co.kr/news/photo/202108/509852_616015_3430.jpg");
+            background-position: center;
+            background-size: cover;
+
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .mypost {
+            max-width: 500px;
+            width: 95%;
+
+            margin: 20px auto 0 auto;
+
+            box-shadow: 0 0 3px 0 gray;
+            padding: 20px;
+        }
+        .mybtn {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            margin-top: 10px;
+        }
+        .myquote {
+            max-width: 500px;
+            width: 95%;
+
+            margin: 20px auto 0 auto;
+        }
+        .myquote > .card {
+            margin: 10px auto 0 auto;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/sparta_api/weather/seoul",
+                data: {},
+                success: function (response) {
+                    $('#temp').text(response['temp'])
+                }
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="mytitle">
+        <h1>십센치(10cm) 팬명록</h1>
+        <p>현재기온 : <span id="temp"></span>도</p>
+    </div>
+    <div class="mypost">
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">닉네임</label>
+        </div>
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                      style="height: 100px"></textarea>
+            <label for="floatingTextarea2">응원댓글</label>
+        </div>
+        <div class="mybtn">
+            <button type="button" class="btn btn-dark">응원 남기기</button>
+        </div>
+    </div>
+    <div class="myquote">
+        <div class="card">
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p>새로운 앨범 너무 멋져요!</p>
+                    <footer class="blockquote-footer">호빵맨
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p>새로운 앨범 너무 멋져요!</p>
+                    <footer class="blockquote-footer">호빵맨
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p>새로운 앨범 너무 멋져요!</p>
+                    <footer class="blockquote-footer">호빵맨
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+```
+
+- ![2주차 숙제](https://user-images.githubusercontent.com/98236458/164513570-b2a7227c-2ab4-4d56-b96a-4c27bce15d09.PNG)
