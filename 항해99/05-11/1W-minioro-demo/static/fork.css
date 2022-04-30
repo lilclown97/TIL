@@ -1,0 +1,44 @@
+
+
+.btn-box {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fork-btn {
+    width: 30vw;
+    height: 50vh;
+
+    margin: 0 15px 20px 15px;
+
+    border-radius: 10px;
+    border: none;
+
+    background-color: #FDAB7D;
+    color: white;
+
+    font-size: 25px;
+}
+.fork-btn:hover {
+    background-color: white;
+    color: #FDAB7D;
+
+    border: 2px solid #FDAB7D;
+}
+.myPage-btn {
+    background-color: #FDAB7D;
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+
+    width: 80px;
+    height: 25px;
+}
+.myPage-btn:hover {
+    background-color: white;
+    color: #FDAB7D;
+
+    border: 2px solid #FDAB7D;
+}
