@@ -25,6 +25,9 @@ docs:
         url: "https://lilclown97.github.io/categories/#til"
       - title: "Algorithm"
         url: "https://lilclown97.github.io/categories/#algorithm"
+      - title: "과제"
+        url: "https://lilclown97.github.io/categories/#report"
+
 
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
