@@ -25,14 +25,14 @@ url                      : "https://lilclown97.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "lilclown97/lilclown97.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # "/assets/images/black.png"
+logo                     : # "/assets/images/black.PNG"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 breadcrumbs            : true # true, false (default)
 words_per_minute         : 200
 comments:
   provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
   disqus:
-    shortname            : "lilclown97s-blog"
+    shortname            : "lilclown's Devlog"
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -103,7 +103,7 @@ analytics:
 # Site Author
 author:
   name             : "lilclown"
-  avatar           : "/assets/images/clown.png"
+  avatar           : "/assets/images/black.PNG"
   bio              : "Started on **2022-01-24~"
   location         : "South Korea"
   email            : 
