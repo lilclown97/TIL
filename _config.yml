@@ -16,11 +16,11 @@ minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "
 
 # Site Settings
 locale                   : "ko-KR"
-title                    : "어릿광대의 개발공부블로그"
+title                    : "lilclown's Devlog"
 title_separator          : "|"
 subtitle                 : "Laugh at myself."
 name                     : "lilclown"
-description              : "어릿광대의 개발공부블로그"
+description              : "lilclown's Devlog"
 url                      : "https://lilclown97.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "lilclown97/lilclown97.github.io"
