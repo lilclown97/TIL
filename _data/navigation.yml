@@ -19,6 +19,8 @@ docs:
     children:
       - title: "사전준비 웹개발종합반"
         url: "https://lilclown97.github.io/categories/#web-develop"
+      - title: "TIL"
+        url: "https://lilclown97.github.io/categories/#til"
 
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
