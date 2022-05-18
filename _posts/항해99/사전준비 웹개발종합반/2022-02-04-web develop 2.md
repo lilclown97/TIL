@@ -1,3 +1,17 @@
+--- 
+
+title: "항해99, 사전준비 웹개발종합반 #2"
+excerpt: "웹개발 종합반 1-6~11 CSS 활용" 
+categories: [hanghae99, web develop]
+tag: [항해99, 사전준비, 웹개발종합반] 
+
+---
+
+**[Notice[공지사항]](https://lilclown97.github.io/categories/#notice)**
+{: .notice--danger}
+
+<br><br><br>
+
 ## login page 
 
 ### 1. 새로 사용한 tag
