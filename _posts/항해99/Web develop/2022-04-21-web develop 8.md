@@ -2,7 +2,7 @@
 
 title: "[항해99] 웹개발종합반 #8" 
 excerpt: "웹개발 종합반 3-1~8 파이썬" 
-categories: [Web develop]
+categories: [Web develop, Hanghae99]
 tag: [항해99, 사전준비, 웹개발종합반] 
 
 ---

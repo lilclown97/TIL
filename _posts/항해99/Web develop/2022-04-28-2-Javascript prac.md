@@ -2,7 +2,7 @@
 
 title: "[항해99] 웹개발종합반 복습 #2" 
 excerpt: "웹개발 종합반 복습 Javascript" 
-categories: [Web develop]
+categories: [Web develop, Hanghae99]
 tag: [항해99, 사전준비, 웹개발종합반] 
 
 ---
