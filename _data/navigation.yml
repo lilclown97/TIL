@@ -15,11 +15,11 @@ docs:
         url: "https://lilclown97.github.io/categories/#notice"
   - title: "GitHub"
     children:
-      - title: "Blog"
+      - title: "Blog 만들기"
         url: "https://lilclown97.github.io/categories/#github-blog"
   - title: "항해99"
     children:
-      - title: "사전준비 웹개발종합반"
+      - title: "웹개발종합반"
         url: "https://lilclown97.github.io/categories/#web-develop"
       - title: "TIL"
         url: "https://lilclown97.github.io/categories/#til"
