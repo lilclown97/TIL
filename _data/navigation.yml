@@ -11,9 +11,6 @@ main:
 docs:
   - title: "Notice"
     url: "https://lilclown97.github.io/categories/#notice"
-    children:
-      - title: "Read"
-        url: "https://lilclown97.github.io/categories/#notice"
   - title: "GitHub"
     children:
       - title: "Blog 만들기"
