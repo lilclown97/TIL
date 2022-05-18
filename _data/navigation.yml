@@ -10,21 +10,23 @@ main:
     url: /search/
 docs:
   - title: "Notice"
-    url: "https://lilclown97.github.io/categories/#notice"
-  - title: "TIL"
-    url: "https://lilclown97.github.io/categories/#til"
-  - title: "알고리즘"
-        url: "https://lilclown97.github.io/categories/#algorithm"
-  - title: "항해99"
     children:
-      - title: "웹개발종합반"
-        url: "https://lilclown97.github.io/categories/#web-develop"
-      - title: "과제"
-        url: "https://lilclown97.github.io/categories/#report"
+      - title: "Read"
+        url: "https://lilclown97.github.io/categories/#notice"
   - title: "GitHub"
     children:
-      - title: "Blog 만들기"
+      - title: "Blog"
         url: "https://lilclown97.github.io/categories/#github-blog"
+  - title: "항해99"
+    children:
+      - title: "사전준비 웹개발종합반"
+        url: "https://lilclown97.github.io/categories/#web-develop"
+      - title: "TIL"
+        url: "https://lilclown97.github.io/categories/#til"
+      - title: "Algorithm"
+        url: "https://lilclown97.github.io/categories/#algorithm"
+      - title: "과제"
+        url: "https://lilclown97.github.io/categories/#report"
 
 
   # - title: "About"
