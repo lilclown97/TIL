@@ -10,6 +10,7 @@ main:
     url: /search/
 docs:
   - title: "Notice"
+    url: "https://lilclown97.github.io/categories/#notice"
     children:
       - title: "Read"
         url: "https://lilclown97.github.io/categories/#notice"
