@@ -1,8 +1,8 @@
 --- 
 
-title: "항해99, 사전준비 웹개발종합반 #7" 
+title: "[항해99] 웹개발종합반 #7" 
 excerpt: "웹개발 종합반 2주차 숙제_팬명록에 날씨 정보 추가하기" 
-categories: [hanghae99, web develop]
+categories: [Web develop]
 tag: [항해99, 사전준비, 웹개발종합반] 
 
 ---

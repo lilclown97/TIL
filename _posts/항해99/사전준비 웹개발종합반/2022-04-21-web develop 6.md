@@ -1,8 +1,8 @@
 --- 
 
-title: "항해99, 사전준비 웹개발종합반 #6" 
+title: "[항해99] 웹개발종합반 #6" 
 excerpt: "웹개발 종합반 2-6~11 Ajax" 
-categories: [hanghae99, web develop]
+categories: [Web develop]
 tag: [항해99, 사전준비, 웹개발종합반] 
 
 ---

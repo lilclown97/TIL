@@ -1,8 +1,8 @@
 ---
 
-title: "항해99, 사전준비 웹개발종합반 복습 #5" 
+title: "[항해99] 웹개발종합반 복습 #5" 
 excerpt: "웹개발 종합반 복습 scraping, crawling" 
-categories: [hanghae99, web develop]
+categories: [web develop]
 tag: [항해99, 사전준비, 웹개발종합반] 
 
 ---
