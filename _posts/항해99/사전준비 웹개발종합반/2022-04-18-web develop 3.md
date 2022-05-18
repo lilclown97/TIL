@@ -1,17 +1,3 @@
---- 
-
-title: "항해99, 사전준비 웹개발종합반 #3" 
-excerpt: "웹개발 종합반 1-12~16 Javascript 기초" 
-categories: [hanghae99, web develop]
-tag: [항해99, 사전준비, 웹개발종합반] 
-
----
-
-**[Notice[공지사항]](https://lilclown97.github.io/categories/#notice)**
-{: .notice--danger}
-
-<br><br><br>
-
 ## 1-12
 
 <br>
