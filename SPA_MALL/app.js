@@ -1,7 +1,7 @@
 const express = require('express');
 const connect = require('./schemas');
 const app = express();
-const port = 3000;
+const port = 5000;
 
 connect();
 
@@ -11,7 +11,10 @@ const requestMiddleware = (req, res, next) => {
     console.log('request URL:', req.originalUrl, '-', new Date());
     next();
 };
+
+app.use(express.static('static'));
 app.use(express.json());
+app.use(express.urlencoded());
 app.use(requestMiddleware);
 
 app.use('/api', [goodsRouter]);
