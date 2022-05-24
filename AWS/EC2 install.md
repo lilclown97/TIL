@@ -31,3 +31,9 @@ npm install -g pm2
 ```
 pm2 start app.js
 ```
+
+## iptables
+
+```
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3000
+```
