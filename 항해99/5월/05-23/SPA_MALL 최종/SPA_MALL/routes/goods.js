@@ -12,7 +12,7 @@ router.get('/goods', async (req, res) => {
 
     const goods = await Goods.find({ category });
     res.json({
-        goods
+        goods,
     });
 });
 
@@ -27,8 +27,8 @@ router.get('/goods/cart', async (req, res) => {
     res.json({
         cart: carts.map((cart) => ({
             quantity: cart.quantity,
-            goods: goods.find((item) => item.goodsId === cart.goodsId)
-        }))
+            goods: goods.find((item) => item.goodsId === cart.goodsId),
+        })),
     });
 });
 
@@ -38,7 +38,7 @@ router.get('/goods/:goodsId', async (req, res) => {
     const [goods] = await Goods.find({ goodsId: Number(goodsId) });
 
     res.json({
-        goods
+        goods,
     });
 });
 
