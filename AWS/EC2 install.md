@@ -18,6 +18,12 @@ sudo apt-get update
 sudo apt-get install -y mongodb-org
 ```
 
+## MongoDB start
+
+```
+sudo service mongod start
+```
+
 ## pm2 install
 
 ```
@@ -30,6 +36,10 @@ npm install -g pm2
 
 ```
 pm2 start app.js
+```
+
+```
+pm2 kill
 ```
 
 ## iptables
