@@ -45,4 +45,16 @@ npx sequelize init
 //데이터베이스 생성
 npx sequelize db:create
 npx sequelize db:migrate
+
+//시드파일 생성
+npx sequelize-cli seed:generate --name user
+
+//시드 데이터 추가
+npx sequelize db:seed:all
+```
+
+## socket io
+
+```
+npm i socket.io -S
 ```
