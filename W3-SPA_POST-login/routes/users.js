@@ -1,34 +1,57 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
+const Joi = require('joi');
 const Users = require('../schemas/users');
 const authMiddleware = require('../middlewares/auth-middlewares');
 const router = express.Router();
 
+//회원가입 joi(완료)
+const postUsersSchema = Joi.object({
+    nickname: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,15}$')).required(),
+    password: Joi.string().min(4).required(),
+    confirmPassword: Joi.ref('password'),
+});
+
 //회원가입(완료)
 router.post('/users', async (req, res) => {
-    const { nickname, password, confirmPassword } = req.body;
+    try {
+        const { nickname, password, confirmPassword } = await postUsersSchema.validateAsync(req.body);
 
-    //비밀번호 검사
-    if (password !== confirmPassword) {
-        res.status(400).send({
-            errorMessage: '패스워드 불일치',
+        //비밀번호 검사
+        if (password !== confirmPassword) {
+            res.status(400).send({
+                errorMessage: '패스워드 불일치',
+            });
+            return;
+        }
+
+        //닉네임 검사
+        const userscheck = await Users.find({
+            nickname: nickname,
         });
-        return;
-    }
+        if (userscheck.length) {
+            res.status(400).send({
+                errorMessage: '이미 가입된 닉네임.',
+            });
+            return;
+        }
 
-    //닉네임 검사
-    const userscheck = await Users.find({
-        nickname: nickname,
-    });
-    if (userscheck.length) {
+        //닉네임,비밀번호 동일여부
+        if (nickname === password) {
+            res.status(400).send({
+                errorMessage: '아이디랑 비밀번호는 같을 수 없음.',
+            });
+            return;
+        }
+
+        const createdUsers = await Users.create({ nickname, password });
+        res.json({ users: createdUsers });
+    } catch (error) {
+        console.log(error);
         res.status(400).send({
-            errorMessage: '이미 가입된 닉네임.',
+            errorMessage: '형식이 올바르지 않음',
         });
-        return;
     }
-
-    const createdUsers = await Users.create({ nickname, password });
-    res.json({ users: createdUsers });
 });
 
 //로그인(완료)

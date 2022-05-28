@@ -9,7 +9,7 @@ const postsSchema = mongoose.Schema({
     title: {
         type: String,
     },
-    name: {
+    nickname: {
         type: String,
         required: true,
     },
@@ -19,10 +19,6 @@ const postsSchema = mongoose.Schema({
     },
     posts: {
         type: String,
-    },
-    password: {
-        type: Number,
-        required: true,
     },
 });
 
