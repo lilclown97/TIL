@@ -1,10 +1,12 @@
 const express = require('express');
 const Comments = require('../schemas/comments');
+const authMiddleware = require('../middlewares/auth-middlewares');
 const router = express.Router();
 
-//댓글 작성 - 토큰추가
-router.post('/posts/:postsId', async (req, res) => {
-    const { nickname, comments } = req.body;
+//댓글 작성(완료)
+router.post('/posts/:postsId', authMiddleware, async (req, res) => {
+    const { nickname } = res.locals.user;
+    const { comments } = req.body;
     const { postsId } = req.params;
 
     const maxCommentsId = await Comments.findOne().sort('-commentsId').exec();
@@ -19,19 +21,39 @@ router.post('/posts/:postsId', async (req, res) => {
     res.json({ comments: createdComments });
 });
 
-//댓글 수정 - 토큰추가
-router.put('/posts/:postsId/:commentsId', async (req, res) => {
+//댓글 수정(완료)
+router.put('/posts/:postsId/:commentsId', authMiddleware, async (req, res) => {
+    const { nickname } = res.locals.user;
     const { commentsId } = req.params;
     const { comments } = req.body;
+
+    //토큰값 nickname이랑 글을 쓴 nickname 비교 - nickname은 unique
+    const checkNickname = await Comments.findOne({ commentsId: Number(commentsId) });
+    if (checkNickname['nickname'] !== nickname) {
+        res.status(400).send({
+            errorMessage: '너가 쓴 댓글 아니야',
+        });
+        return;
+    }
 
     await Comments.updateOne({ commentsId: Number(commentsId) }, { $set: { comments } });
 
     res.json({ success: true });
 });
 
-//댓글 삭제 - 토큰추가
-router.delete('/posts/:postsId/:commentsId', async (req, res) => {
+//댓글 삭제(완료)
+router.delete('/posts/:postsId/:commentsId', authMiddleware, async (req, res) => {
+    const { nickname } = res.locals.user;
     const { commentsId } = req.params;
+
+    //토큰값 nickname이랑 글을 쓴 nickname 비교 - nickname은 unique
+    const checkNickname = await Comments.findOne({ commentsId: Number(commentsId) });
+    if (checkNickname['nickname'] !== nickname) {
+        res.status(400).send({
+            errorMessage: '너가 쓴 댓글 아니야',
+        });
+        return;
+    }
 
     await Comments.deleteOne({ commentsId: Number(commentsId) });
 

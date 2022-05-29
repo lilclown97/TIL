@@ -2,6 +2,7 @@ const express = require('express');
 const Posts = require('../schemas/posts');
 const Comments = require('../schemas/comments');
 const router = express.Router();
+const authMiddleware = require('../middlewares/auth-middlewares');
 
 //post 전체 조회(완료)
 router.get('/posts', async (req, res) => {
@@ -30,9 +31,10 @@ router.get('/posts/:postsId', async (req, res) => {
     });
 });
 
-//게시글 작성 - 토큰추가
-router.post('/posts', async (req, res) => {
-    const { title, nickname, posts } = req.body;
+//게시글 작성(완료)
+router.post('/posts', authMiddleware, async (req, res) => {
+    const { nickname } = res.locals.user;
+    const { title, posts } = req.body;
 
     //postsId 자동증가
     const maxPostsId = await Posts.findOne().sort('-postsId').exec();
@@ -47,23 +49,42 @@ router.post('/posts', async (req, res) => {
     res.json({ posts: createdPosts });
 });
 
-//게시글 수정 - 토큰추가
-router.put('/posts/:postsId', async (req, res) => {
+//게시글 수정(완료)
+router.put('/posts/:postsId', authMiddleware, async (req, res) => {
+    const { nickname } = res.locals.user;
     const { postsId } = req.params;
     const { title, posts } = req.body;
+
+    //토큰값 nickname이랑 글을 쓴 nickname 비교 - nickname은 unique
+    const checkNickname = await Posts.findOne({ postsId: Number(postsId) });
+    if (checkNickname['nickname'] !== nickname) {
+        res.status(400).send({
+            errorMessage: '너가 쓴 글 아니야',
+        });
+        return;
+    }
 
     await Posts.updateOne({ postsId: Number(postsId) }, { $set: { title, posts } });
 
     res.json({ success: true });
 });
 
-//게시글 삭제 - 토큰추가
-router.delete('/posts/:postsId', async (req, res) => {
+//게시글 삭제(완료)
+router.delete('/posts/:postsId', authMiddleware, async (req, res) => {
+    const { nickname } = res.locals.user;
     const { postsId } = req.params;
+
+    //토큰값 nickname이랑 글을 쓴 nickname 비교 - nickname은 unique
+    const checkNickname = await Posts.findOne({ postsId: Number(postsId) });
+    if (checkNickname['nickname'] !== nickname) {
+        res.status(400).send({
+            errorMessage: '너가 쓴 글 아니야',
+        });
+        return;
+    }
 
     //게시글 삭제되면 댓글 전부 삭제
     await Posts.deleteOne({ postsId: Number(postsId) });
-
     await Comments.deleteMany({ postsId: Number(postsId) });
 
     res.json({ success: true });

@@ -17,14 +17,6 @@ router.post('/users', async (req, res) => {
     try {
         const { nickname, password, confirmPassword } = await postUsersSchema.validateAsync(req.body);
 
-        //비밀번호 검사
-        if (password !== confirmPassword) {
-            res.status(400).send({
-                errorMessage: '패스워드 불일치',
-            });
-            return;
-        }
-
         //닉네임 검사
         const userscheck = await Users.find({
             nickname: nickname,
