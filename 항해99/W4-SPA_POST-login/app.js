@@ -1,7 +1,7 @@
 const express = require('express');
 const connect = require('./schemas');
 const app = express();
-const port = 5050;
+const port = 5000;
 
 connect();
 
