@@ -3,12 +3,31 @@ const Comments = require('../schemas/comments');
 const authMiddleware = require('../middlewares/auth-middlewares');
 const router = express.Router();
 
+//댓글 조회(완료)
+router.get('/posts/:postsId/comments', async (req, res) => {
+    const { postsId } = req.params;
+
+    const comments = await Comments.find({ postsId: Number(postsId) }, { _id: 0, __v: 0, postsId: 0 }).sort({
+        date: -1,
+    });
+
+    res.json({
+        comments,
+    });
+});
+
 //댓글 작성(완료)
 router.post('/posts/:postsId', authMiddleware, async (req, res) => {
     const { nickname } = res.locals.user;
     const { comments } = req.body;
     const { postsId } = req.params;
 
+    if (comments === '') {
+        res.status(400).send({
+            errorMessage: '글을 써',
+        });
+        return;
+    }
     const maxCommentsId = await Comments.findOne().sort('-commentsId').exec();
     let commentsId = 1;
 
@@ -22,7 +41,7 @@ router.post('/posts/:postsId', authMiddleware, async (req, res) => {
 });
 
 //댓글 수정(완료)
-router.put('/posts/:postsId/:commentsId', authMiddleware, async (req, res) => {
+router.put('/posts/comments/:commentsId', authMiddleware, async (req, res) => {
     const { nickname } = res.locals.user;
     const { commentsId } = req.params;
     const { comments } = req.body;
@@ -42,7 +61,7 @@ router.put('/posts/:postsId/:commentsId', authMiddleware, async (req, res) => {
 });
 
 //댓글 삭제(완료)
-router.delete('/posts/:postsId/:commentsId', authMiddleware, async (req, res) => {
+router.delete('/posts/comments/:commentsId', authMiddleware, async (req, res) => {
     const { nickname } = res.locals.user;
     const { commentsId } = req.params;
 

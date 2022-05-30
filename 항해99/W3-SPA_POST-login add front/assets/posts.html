@@ -17,7 +17,7 @@
         <!-- Font Awesome CSS -->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
         <link href="/mystyle.css" rel="stylesheet" />
-        <title>스파르타 쇼핑몰 | 상품 목록</title>
+        <title>W4 게시판 | 게시글</title>
         <style>
             .card {
                 cursor: pointer;
@@ -31,9 +31,9 @@
 
     <body>
         <nav class="navbar navbar-expand-sm navbar-dark bg-sparta justify-content-end">
-            <a class="navbar-brand" href="/goods.html">
+            <a class="navbar-brand" href="/posts.html">
                 <img src="/logo_big_tr.png" width="30" height="30" class="d-inline-block align-top" alt="" />
-                스파르타 쇼핑몰
+                W4 게시판
             </a>
             <button
                 class="navbar-toggler ml-auto"
@@ -48,11 +48,6 @@
             </button>
             <div class="navbar-collapse collapse flex-grow-0 ml-auto" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto text-right">
-                    <li class="nav-item" id="link-cart">
-                        <a class="nav-link" href="/cart.html">
-                            장바구니<i class="fa fa-shopping-cart ml-2" aria-hidden="true"></i>
-                        </a>
-                    </li>
                     <li class="nav-item" id="link-logout">
                         <a class="nav-link" data-toggle="modal" data-target="#signOutModal">
                             로그아웃<i class="fa fa-sign-out ml-2" aria-hidden="true"></i>
@@ -90,41 +85,44 @@
             </div>
         </nav>
         <div class="wrap">
-            <div>
-                <div class="form-group row mr-0">
-                    <label for="categorySelect" class="col-4 col-form-label">카테고리</label>
-                    <select class="form-control col-8" id="categorySelect">
-                        <option value="" selected>전체</option>
-                        <option value="drink">음료</option>
-                        <option value="food">음식</option>
-                    </select>
-                </div>
-            </div>
-            <div id="goodsList" class="mb-5">
-                <div>
-                    <div class="card mb-2" onclick="location.href='#'">
-                        <div class="row no-gutters">
-                            <div class="col-sm-5" style="background: #868e96">
-                                <img
-                                    src="https://cdn.pixabay.com/photo/2016/09/07/19/54/wines-1652455_1280.jpg"
-                                    class="card-img-top h-100"
-                                    alt="..."
-                                />
-                            </div>
-                            <div class="col-sm-7 d-flex">
-                                <div class="card-body flex-fill">
-                                    <div class="card-title mb-auto">
-                                        <h5 style="display: inline">상품 1</h5>
-                                        <span class="card-price ml-2">$6.20</span>
-                                    </div>
-                                    <span class="badge badge-secondary">drink</span>
-                                    <!--                                <p class="card-text"><small class="text-muted">drink</small></p>-->
-                                </div>
-                            </div>
+            <div class="card mx-auto" style="max-width: 480px">
+                <div class="card-body">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i aria-hidden="true"></i></span>
+                        </div>
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="제목"
+                            aria-label="Username"
+                            aria-describedby="basic-addon1"
+                            id="inputtitle"
+                        />
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon2"><i aria-hidden="true"></i></span>
+                        </div>
+                        <input
+                            type="password"
+                            class="form-control"
+                            placeholder="내용"
+                            aria-label="Password"
+                            aria-describedby="basic-addon2"
+                            id="inputposts"
+                        />
+                    </div>
+                    <div class="row d-flex justify-content-around">
+                        <div class="col-6 pr-2">
+                            <button type="button" class="btn btn-sparta btn-block" onclick="sign_in()">작성</button>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="wrap">
+            <div id="postsList" class="mb-5"></div>
         </div>
 
         <!-- Optional JavaScript -->
@@ -153,47 +151,74 @@
             getSelf(function (u) {
                 user = u;
             });
+
+            //게시글 조회
+            function getPosts(category, callback) {
+                $('#postsList').empty();
+                $.ajax({
+                    type: 'GET',
+                    url: `/posts`,
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('token')}`,
+                    },
+                    success: function (response) {
+                        callback(response['posts']);
+                    },
+                });
+            }
+
             $(document).ready(function () {
-                getGoods(null, function (goods) {
-                    for (let i = 0; i < goods.length; i++) {
-                        make_card(goods[i]);
+                getPosts(null, function (posts) {
+                    for (let i = 0; i < posts.length; i++) {
+                        make_card(posts[i]);
                     }
                 });
-
-                $('#categorySelect').on('change', function () {
-                    getGoods($(this).val(), function (goods) {
-                        for (let i = 0; i < goods.length; i++) {
-                            make_card(goods[i]);
-                        }
-                    });
-                });
             });
-
             function make_card(item) {
                 let htmlTemp = `<div>
-    <div class="card mb-2" onclick="location.href='/detail.html?goodsId=${item['goodsId']}'">
+    <div class="card mb-2" onclick="location.href='/detail.html?postsId=${item['postsId']}'">
         <div class="row no-gutters">
-            <div class="col-sm-5" style="background: #868e96;">
-                <img src="${item['thumbnailUrl']}"
-                      class="card-img-top h-100" alt="...">
-            </div>
+          <h5 style="display: inline">${item['postsId']}</h5>
             <div class="col-sm-7 d-flex">
                 <div class="card-body flex-fill">
                     <div class="card-title mb-auto">
-                        <h5 style="display: inline">${item['name']}</h5>
-                        <span class="card-price ml-2">$${number2decimals(item['price'])}</span>
+                        <h5 style="display: inline">${item['title']}</h5>
+                        <span class="card-price ml-2">$${item['nickname']}</span>
                     </div>
-                    <span class="badge badge-secondary">${item['category']}</span>
+                    <span class="badge badge-secondary">${item['date']}</span>
                 </div>
             </div>
         </div>
     </div>
 </div>`;
-                $('#goodsList').append(htmlTemp);
+                $('#postsList').append(htmlTemp);
             }
 
             function number2decimals(num) {
                 return (Math.round(num * 100) / 100).toFixed(2);
+            }
+            //게시글 작성
+            function sign_in() {
+                let title = $('#inputtitle').val();
+                let posts = $('#inputposts').val();
+                $.ajax({
+                    type: 'POST',
+                    url: '/posts',
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('token')}`,
+                    },
+                    data: {
+                        title: title,
+                        posts: posts,
+                    },
+                    success: function (response) {
+                        window.location.replace('/posts.html');
+                        callback();
+                    },
+                    error: function (error) {
+                        customAlert(error.responseJSON.errorMessage);
+                    },
+                });
             }
         </script>
     </body>

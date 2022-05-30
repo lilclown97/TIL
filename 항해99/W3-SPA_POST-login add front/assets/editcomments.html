@@ -15,73 +15,56 @@
         />
         <!-- Font Awesome CSS -->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
         <link href="/mystyle.css" rel="stylesheet" />
-        <title>스파르타 쇼핑몰 | 로그인</title>
+        <title>게시글 | 수정</title>
 
         <style>
             .jumbotron {
                 border-radius: 0;
             }
 
-            .input-group-text {
-                border-right-color: white;
-                background-color: white;
-            }
-
-            .input-group > input {
-                border-left-color: white;
+            @media screen and (max-width: 576px) {
+                .form-group {
+                    margin-bottom: 0.25rem;
+                }
             }
         </style>
     </head>
 
     <body>
         <div class="jumbotron bg-sparta text-white text-center" onclick="window.location.href='/'">
-            <h1 class="font-weight-bold">스파르타 쇼핑몰</h1>
+            <h1 class="font-weight-bold">게시글 수정</h1>
         </div>
         <div class="wrap">
             <div class="card mx-auto" style="max-width: 480px">
                 <div class="card-body">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"
-                                ><i class="fa fa-user-o" aria-hidden="true"></i
-                            ></span>
+                    <div>
+                        <div class="form-group row">
+                            <div class="col-sm-8">
+                                <input type="comments" class="form-control" id="inputcomments" placeholder="댓글" />
+                                <!--                                <small id="passwordHelp1" class="form-text text-muted">영문과 숫자로 6자리 이상 입력해주세요.</small>-->
+                            </div>
                         </div>
-                        <input
-                            type="text"
-                            class="form-control"
-                            placeholder="아이디"
-                            aria-label="Username"
-                            aria-describedby="basic-addon1"
-                            id="inputEmail"
-                        />
                     </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon2"
-                                ><i class="fa fa-lock" aria-hidden="true"></i
-                            ></span>
-                        </div>
-                        <input
-                            type="password"
-                            class="form-control"
-                            placeholder="비밀번호"
-                            aria-label="Password"
-                            aria-describedby="basic-addon2"
-                            id="inputPassword"
-                        />
-                    </div>
-                    <div class="row d-flex justify-content-around">
+                    <div class="row d-flex justify-content-around mt-3">
                         <div class="col-6 pr-2">
-                            <button type="button" class="btn btn-sparta btn-block" onclick="sign_in()">로그인</button>
+                            <button type="button" class="btn btn-sparta btn-block" onclick="edit_comments()">
+                                수정
+                            </button>
+                        </div>
+                        <div class="col-6 pr-2">
+                            <button type="button" class="btn btn-sparta btn-block" onclick="deletecomments()">
+                                삭제
+                            </button>
                         </div>
                         <div class="col-6 pl-2">
                             <button
                                 type="button"
                                 class="btn btn-outline-sparta btn-block"
-                                onclick="window.location.href='/register.html'"
+                                onclick="window.location = document.referrer;"
                             >
-                                회원가입
+                                취소
                             </button>
                         </div>
                     </div>
@@ -104,9 +87,11 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body" id="alertText"></div>
+                    <div class="modal-body" id="alertText">정말로 로그아웃 하시겠습니까?</div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-sparta" data-dismiss="modal">확인</button>
+                        <button type="button" class="btn btn-outline-sparta btn-confirm" data-dismiss="modal">
+                            확인
+                        </button>
                     </div>
                 </div>
             </div>
@@ -129,40 +114,53 @@
             integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
             crossorigin="anonymous"
         ></script>
-
-        <script src="/api.js"></script>
-
         <script>
-            if (localStorage.getItem('token')) {
-                getSelf(function () {
-                    alert('이미 로그인이 되어있습니다. 상품 페이지로 이동합니다.');
-                    window.location.replace('/goods.html');
-                });
-            }
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const commentsId = urlParams.get('commentsId');
 
-            function sign_in() {
-                let email = $('#inputEmail').val();
-                let password = $('#inputPassword').val();
+            function edit_comments() {
+                const comments = $('#inputcomments').val();
+
                 $.ajax({
-                    type: 'POST',
-                    url: '/api/auth',
+                    type: 'PUT',
+                    url: `/posts/comments/${commentsId}`,
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('token')}`,
+                    },
                     data: {
-                        email: email,
-                        password: password,
+                        comments: comments,
                     },
                     success: function (response) {
-                        localStorage.setItem('token', response.token);
-                        window.location.replace('/goods.html');
+                        window.location = document.referrer;
                     },
                     error: function (error) {
                         customAlert(error.responseJSON.errorMessage);
                     },
                 });
             }
-
-            function customAlert(text) {
+            function customAlert(text, confirmCallback) {
                 $('#alertText').text(text);
                 $('#alertModal').modal('show');
+                if (confirmCallback) {
+                    $('#alertModal .btn-confirm').click(confirmCallback);
+                }
+            }
+            //댓글삭제
+            function deletecomments() {
+                $.ajax({
+                    type: 'DELETE',
+                    url: `/posts/comments/${commentsId}`,
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('token')}`,
+                    },
+                    success: function () {
+                        window.location = document.referrer;
+                    },
+                    error: function (error) {
+                        customAlert(error.responseJSON.errorMessage);
+                    },
+                });
             }
         </script>
     </body>

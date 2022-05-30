@@ -4,7 +4,7 @@ const Comments = require('../schemas/comments');
 const router = express.Router();
 const authMiddleware = require('../middlewares/auth-middlewares');
 
-//post 전체 조회(완료)
+//post 전체 조회(완료) 프론트 완료
 router.get('/posts', async (req, res) => {
     const posts = await Posts.find({}, { _id: 0, postsId: 1, title: 1, nickname: 1, date: 1 }).sort({ date: -1 });
 
@@ -13,7 +13,7 @@ router.get('/posts', async (req, res) => {
     });
 });
 
-//post 상세 조회, 댓글 조회(완료)
+//post 상세 조회(완료) 프론트 완료
 router.get('/posts/:postsId', async (req, res) => {
     const { postsId } = req.params;
 
@@ -21,17 +21,13 @@ router.get('/posts/:postsId', async (req, res) => {
         { postsId: Number(postsId) },
         { _id: 0, postsId: 1, title: 1, nickname: 1, date: 1, posts: 1 }
     );
-    const comments = await Comments.find({ postsId: Number(postsId) }, { _id: 0, __v: 0, postsId: 0 }).sort({
-        date: -1,
-    });
 
     res.json({
         posts,
-        comments,
     });
 });
 
-//게시글 작성(완료)
+//게시글 작성(완료) 프론트 완료
 router.post('/posts', authMiddleware, async (req, res) => {
     const { nickname } = res.locals.user;
     const { title, posts } = req.body;

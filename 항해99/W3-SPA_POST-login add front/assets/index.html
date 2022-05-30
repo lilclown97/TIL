@@ -16,7 +16,7 @@
         <!-- Font Awesome CSS -->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
         <link href="/mystyle.css" rel="stylesheet" />
-        <title>스파르타 쇼핑몰 | 로그인</title>
+        <title>W4 게시판| 로그인</title>
 
         <style>
             .jumbotron {
@@ -36,7 +36,7 @@
 
     <body>
         <div class="jumbotron bg-sparta text-white text-center" onclick="window.location.href='/'">
-            <h1 class="font-weight-bold">스파르타 쇼핑몰</h1>
+            <h1 class="font-weight-bold">W4 게시판</h1>
         </div>
         <div class="wrap">
             <div class="card mx-auto" style="max-width: 480px">
@@ -53,7 +53,7 @@
                             placeholder="아이디"
                             aria-label="Username"
                             aria-describedby="basic-addon1"
-                            id="inputEmail"
+                            id="inputNickname"
                         />
                     </div>
                     <div class="input-group mb-3">
@@ -136,23 +136,23 @@
             if (localStorage.getItem('token')) {
                 getSelf(function () {
                     alert('이미 로그인이 되어있습니다. 상품 페이지로 이동합니다.');
-                    window.location.replace('/goods.html');
+                    window.location.replace('/posts.html');
                 });
             }
 
             function sign_in() {
-                let email = $('#inputEmail').val();
+                let nickname = $('#inputNickname').val();
                 let password = $('#inputPassword').val();
                 $.ajax({
                     type: 'POST',
-                    url: '/api/auth',
+                    url: '/auth',
                     data: {
-                        email: email,
+                        nickname: nickname,
                         password: password,
                     },
                     success: function (response) {
                         localStorage.setItem('token', response.token);
-                        window.location.replace('/goods.html');
+                        window.location.replace('/posts.html');
                     },
                     error: function (error) {
                         customAlert(error.responseJSON.errorMessage);
