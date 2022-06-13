@@ -1,19 +1,21 @@
 const express = require('express');
 const Posts = require('../schemas/posts');
 const Comments = require('../schemas/comments');
+const Likes = require('../schemas/likes');
 const router = express.Router();
 const authMiddleware = require('../middlewares/auth-middlewares');
 
-//post 전체 조회(완료) 프론트 완료
+//post 전체 조회(완료)
 router.get('/posts', async (req, res) => {
   const posts = await Posts.find({}, { _id: 0, postsId: 1, title: 1, nickname: 1, date: 1 }).sort({ date: -1 });
+  console.log(posts.length);
 
   res.json({
     posts,
   });
 });
 
-//post 상세 조회(완료) 프론트 완료
+//post 상세 조회(완료)
 router.get('/posts/:postsId', async (req, res) => {
   const { postsId } = req.params;
 
@@ -21,18 +23,17 @@ router.get('/posts/:postsId', async (req, res) => {
     { postsId: Number(postsId) },
     { _id: 0, postsId: 1, title: 1, nickname: 1, date: 1, posts: 1 }
   );
-  const comments = await Posts.find(
-    { postsId: Number(postsId) },
-    { _id: 0, postsId: 1, title: 1, nickname: 1, date: 1, posts: 1 }
-  );
+
+  //좋아요 개수
+  const likes = await Likes.find({ postsId: Number(postsId), type: 'like' }, { _id: 0, type: 1 });
 
   res.json({
     posts,
-    comments
+    countLikes: likes.length,
   });
 });
 
-//게시글 작성(완료) 프론트 완료
+//게시글 작성(완료)
 router.post('/posts', authMiddleware, async (req, res) => {
   const { nickname } = res.locals.user;
   const { title, posts } = req.body;
@@ -87,6 +88,28 @@ router.delete('/posts/:postsId', authMiddleware, async (req, res) => {
   //게시글 삭제되면 댓글 전부 삭제
   await Posts.deleteOne({ postsId: Number(postsId) });
   await Comments.deleteMany({ postsId: Number(postsId) });
+
+  res.json({ success: true });
+});
+
+//좋아요(완료)
+router.put('/posts/:postsId/likes', authMiddleware, async (req, res) => {
+  const { nickname } = res.locals.user;
+  const { postsId } = req.params;
+
+  const likesType = await Likes.findOne({ postsId: Number(postsId), nickname: nickname });
+
+  if (likesType === null) {
+    await Likes.create({ postsId, nickname, type: 'like' });
+    res.json({ success: true });
+    return;
+  }
+
+  if (likesType['type'] === 'like') {
+    await Likes.updateOne({ postsId: Number(postsId), nickname: nickname }, { $set: { type: 'unlike' } });
+  } else {
+    await Likes.updateOne({ postsId: Number(postsId), nickname: nickname }, { $set: { type: 'like' } });
+  }
 
   res.json({ success: true });
 });

@@ -58,3 +58,9 @@ npx sequelize db:seed:all
 ```
 npm i socket.io -S
 ```
+
+## jest
+
+```
+npm i jest -D
+```
