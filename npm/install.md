@@ -64,3 +64,18 @@ npm i socket.io -S
 ```
 npm i jest -D
 ```
+
+## swagger
+
+```
+npm install swagger-ui-express
+npm install swagger-autogen
+
+//app.js 상단에 삽입
+const swaggerUi = require('swagger-ui-express')
+const swaggerFile = require('./swagger_output.json')
+
+
+//app.js 하단에 삽입
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerFile))
+```
