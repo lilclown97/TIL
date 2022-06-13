@@ -21,9 +21,13 @@ router.get('/posts/:postsId', async (req, res) => {
     { postsId: Number(postsId) },
     { _id: 0, postsId: 1, title: 1, nickname: 1, date: 1, posts: 1 }
   );
+  const comments = await Comments.find({ postsId: Number(postsId) }, { _id: 0, __v: 0, postsId: 0 }).sort({
+    date: -1,
+  });
 
   res.json({
     posts,
+    comments,
   });
 });
 

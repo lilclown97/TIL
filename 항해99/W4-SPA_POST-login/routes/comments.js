@@ -3,19 +3,6 @@ const Comments = require('../schemas/comments');
 const authMiddleware = require('../middlewares/auth-middlewares');
 const router = express.Router();
 
-//댓글 조회(완료)
-router.get('/posts/:postsId/comments', async (req, res) => {
-  const { postsId } = req.params;
-
-  const comments = await Comments.find({ postsId: Number(postsId) }, { _id: 0, __v: 0, postsId: 0 }).sort({
-    date: -1,
-  });
-
-  res.json({
-    comments,
-  });
-});
-
 //댓글 작성(완료)
 router.post('/posts/:postsId', authMiddleware, async (req, res) => {
   const { nickname } = res.locals.user;
