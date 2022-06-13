@@ -4,10 +4,8 @@ class Site {
     }
 
     addBoard(board) {
-        // console.log(this.boards.includes(board));
         if (this.boards.find((x) => x.name === board.name)) throw Error;
 
-        board.inSite = true;
         this.boards.push(board);
     }
 
@@ -21,7 +19,7 @@ class Board {
         if (name === null || name === '') throw Error;
 
         this.name = name;
-        this.inSite = false;
+
         this.articles = [];
     }
 

@@ -1,7 +1,7 @@
 const { Site, Board, Article, Comment } = require('.');
 
 describe('Site 요구사항 테스트', () => {
-    //완료
+    // //완료
     test('Site는 n개 이상 생성 할 수 있다.', () => {
         expect(() => {
             const _site1 = new Site();
@@ -32,7 +32,7 @@ describe('Site 요구사항 테스트', () => {
         }).toThrow();
     });
 
-    //완료
+    // //완료
     test('Board는 n개 이상 추가 할 수 있다.', () => {
         const mySite = new Site();
         const noticeBoard = new Board('공지사항');
@@ -89,7 +89,6 @@ describe('Board 요구사항 테스트', () => {
             addedBoard.publish(article);
         }).not.toThrow();
 
-        console.log(addedBoard);
         expect(() => {
             const article = new Article({
                 subject: '글 제목2',
@@ -349,6 +348,7 @@ describe('Comment 요구사항 테스트', () => {
                 content: '댓글1111',
                 author: '강승현',
             });
+
             article.reply(comment);
         }).not.toThrow();
 
