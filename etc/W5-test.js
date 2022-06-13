@@ -12,7 +12,7 @@ class Site {
   addBoard(board) {
     const ownBoardNames = this.boards.map((board) => board.name);
     if (ownBoardNames.includes(board.name)) {
-      throw new Error('동일한 이름의 Board는 추가할 수 없다.');
+      throw new Error('동일한 이름의 Board는 추가할 수 없다..');
     }
 
     board.onCreated();
