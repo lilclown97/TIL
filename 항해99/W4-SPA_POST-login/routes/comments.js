@@ -24,7 +24,7 @@ router.post('/posts/:postsId', authMiddleware, async (req, res) => {
 
   if (comments === '') {
     res.status(400).send({
-      errorMessage: '글을 써',
+      errorMessage: '글을 써.',
     });
     return;
   }
