@@ -1,11 +1,12 @@
-function optionalParameters(name, age, gender = '남') {
-  console.log(name, age, gender);
-}
+let object = {
+  name: '윤영성',
+  age: 26,
+};
 
-optionalParameters('윤영성', 26);
+let object2 = {};
 
-function optionalParameters2(name, gender = '남', age) {
-  console.log(name, age, gender);
-}
+object2 = object;
+object.gender = '남';
 
-optionalParameters2('윤영성', 26);
+console.log(object);
+console.log(object2);
