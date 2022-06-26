@@ -7,20 +7,21 @@
 // a와 b는 -10,000,000 이상 10,000,000 이하인 정수입니다.
 // a와 b의 대소관계는 정해져있지 않습니다.
 
-
 function solution(a, b) {
-    var answer = 0;
+  var answer = 0;
 
-    // a가 b보다 클때 a부터 b까지 answer에 더해가며 저장.
-    if (a > b) {
-        for (i = b; i <= a; i++) {
-            answer += i;
-        }
-    } else { // b가 a보다 크거나 같을때 b부터 a까지 answer에 더해가며 저장.
-        for (i = a; i <= b; i++) {
-            answer += i;
-        }
+  // a가 b보다 클때 a부터 b까지 answer에 더해가며 저장.
+  if (a > b) {
+    for (i = b; i <= a; i++) {
+      answer += i;
     }
-    return answer;
+  } else {
+    // b가 a보다 크거나 같을때 b부터 a까지 answer에 더해가며 저장.
+    for (i = a; i <= b; i++) {
+      answer += i;
+    }
+  }
+  return answer;
 }
-console.log(solution(3,5))
+
+console.log(solution(3, 5));

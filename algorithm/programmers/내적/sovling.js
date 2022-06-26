@@ -11,11 +11,11 @@
 // a, b의 모든 수는 -1,000 이상 1,000 이하입니다.
 
 function solution(a, b) {
-    let sum = 0;
-    for (i = 0; i < a.length; i++) {
-        sum += a[i] * b[i];
-    }
-    return sum;
+  let sum = 0;
+  for (i = 0; i < a.length; i++) {
+    sum += a[i] * b[i];
+  }
+  return sum;
 }
 
 console.log(solution([1, 2, 3, 4], [-3, -1, 0, 2]));
