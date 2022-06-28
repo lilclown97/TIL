@@ -5,19 +5,19 @@
 // 제한 조건
 // n과 m은 각각 1000 이하인 자연수입니다.
 
+const a = 2,
+  b = 3;
 
-const a = 2, b = 3;
-
-let star = "";
+let star = '';
 
 // a:가로, b:세로.
 for (let k = 0; k < b; k++) {
-    for (i = 0; i < a; i++) {
-        // star에 * 추가
-        star += "*"
-    }
-    // 다음 열로 이동.
-    star += "\n"
+  for (i = 0; i < a; i++) {
+    // star에 * 추가
+    star += '*';
+  }
+  // 다음 열로 이동.
+  star += '\n';
 }
 
 console.log(star);
