@@ -1,4 +1,4 @@
-## [Node.js] Sequelize DB 생성
+## [Node.js] Sequelize DB 생성 
 
 ---
 
