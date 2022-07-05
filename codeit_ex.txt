@@ -26,4 +26,4 @@
 
 > **- 출처 -**
 >
-> **1일 1로그 100일 완성 IT지식**
+> **[codeit](https://www.codeit.kr/dashboard)**
