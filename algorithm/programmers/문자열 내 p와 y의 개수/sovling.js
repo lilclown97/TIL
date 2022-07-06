@@ -33,9 +33,6 @@ function solution(s) {
   }
 }
 
-console.log(solution('pPoooyY'));
-console.log(solution('Pyy'));
-
 // 런타임 에러
 // function solution(s){
 //     var count_p = s.match(/p/gi).length;
